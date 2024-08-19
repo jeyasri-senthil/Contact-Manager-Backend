@@ -1,8 +1,6 @@
-// controllers/contactController.js
 const mongoose = require('mongoose');
 const Contact = require('../models/Contact');
 
-// Get all contacts
 exports.getAllContacts = async (req, res) => {
   try {
     const contacts = await Contact.find();
@@ -10,11 +8,9 @@ exports.getAllContacts = async (req, res) => {
   } catch (err) {
     console.log(err);
     res.status(500).json({ message: err.message });
-    
   }
 };
 
-// Get a single contact by ID
 exports.getContactById = async (req, res) => {
   try {
     const contact = await Contact.findById(req.params.id);
@@ -25,7 +21,6 @@ exports.getContactById = async (req, res) => {
   }
 };
 
-// Create a new contact
 exports.createContact = async (req, res) => {
   const contact = new Contact({
     name: req.body.name,
@@ -41,7 +36,6 @@ exports.createContact = async (req, res) => {
   }
 };
 
-// Update a contact by ID
 exports.updateContact = async (req, res) => {
   try {
     const contact = await Contact.findById(req.params.id);
@@ -58,7 +52,6 @@ exports.updateContact = async (req, res) => {
   }
 };
 
-// Delete a contact by ID
 exports.deleteContact = async (req, res) => {
   try {
     const contact = await Contact.findById(req.params.id);
