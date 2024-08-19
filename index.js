@@ -1,14 +1,11 @@
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const createExpressApp = require('./express');
-
 dotenv.config();
 
 const app = createExpressApp();
-
 const PORT = process.env.PORT || 4000;
 const MONGO_URI = process.env.MONGO_URI;
-
 const startServer = async () => {
   try {
     await mongoose.connect(MONGO_URI, {
@@ -22,7 +19,7 @@ const startServer = async () => {
     });
   } catch (error) {
     console.error('Error connecting to MongoDB:', error);
-    process.exit(1);
+    process.exit(1); 
   }
 };
 
