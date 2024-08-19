@@ -13,7 +13,6 @@ app.use(express.json());
 
 
 app.use('/api/contacts',contacts);
-const PORT = process.env.PORT || 5000;
 
 const conn = require('./services/db');
 conn.dbConnection();
@@ -33,5 +32,5 @@ conn.dbConnection();
 // app.use('/api/contacts', contactRoutes);
 
 app.listen(4000, () => {
-  console.log(`Server is running on port ${PORT}`);
+  console.log(`Server is running on port 4000`);
 });

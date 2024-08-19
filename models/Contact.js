@@ -18,6 +18,6 @@ const ContactSchema = new mongoose.Schema({
   },
 });
 
-const temp =  mongoose.model('Contact', ContactSchema);
+const temp =  mongoose.model('contacts', ContactSchema);
 
 module.exports = temp;
