@@ -1,15 +1,15 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
-const contacts = require('./routes/contacts');
-
+const contacts = require('./routes/contacts.js');
+const cors = require('cors');
 
 dotenv.config();
 
 const app = express();
 app.use(express.json());
-
-app.use('/api/contacts',contacts);
+app.use('/api/contacts', contacts);
+app.use(cors()); 
 
 const conn = require('./services/db');
 conn.dbConnection();
