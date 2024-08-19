@@ -129,7 +129,7 @@
 					"urlencoded": []
 				},
 				"url": {
-					"raw": "http://localhost:4000/api/contacts/66c32b2fa4c7a9aea37d9297/",
+					"raw": "http://localhost:4000/api/contacts/66c373adf90063337b1d4265/",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -138,7 +138,7 @@
 					"path": [
 						"api",
 						"contacts",
-						"66c32b2fa4c7a9aea37d9297",
+						"66c373adf90063337b1d4265",
 						""
 					]
 				}
@@ -152,7 +152,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"name\": \"Varshith\",\n    \"email\": \"varshith.s@gmail.com\",\n    \"phone\": \"9952473446\"\n}",
+					"raw": "{\n    \"name\": \"Swetha\",\n    \"email\": \"swetha.p@gmail.com\",\n    \"phone\": \"8438651670\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
