@@ -1,8 +1,6 @@
-// controllers/contactController.js
 const mongoose = require('mongoose');
 const Contact = require('../models/Contact');
 
-// Get all contacts
 exports.getAllContacts = async (req, res) => {
   try {
     const contacts = await Contact.find();
@@ -14,7 +12,6 @@ exports.getAllContacts = async (req, res) => {
   }
 };
 
-// Get a single contact by ID
 exports.getContactById = async (req, res) => {
   try {
     const contact = await Contact.findById(req.params.id);
@@ -25,7 +22,6 @@ exports.getContactById = async (req, res) => {
   }
 };
 
-// Create a new contact
 exports.createContact = async (req, res) => {
   const contact = new Contact({
     name: req.body.name,
@@ -39,26 +35,31 @@ exports.createContact = async (req, res) => {
   } catch (err) {
     res.status(400).json({ message: err.message });
   }
-};
+}; 
 
-// Update a contact by ID
 exports.updateContact = async (req, res) => {
   try {
     const contact = await Contact.findById(req.params.id);
     if (!contact) return res.status(404).json({ message: 'Contact not found' });
 
-    contact.name = req.body.name || contact.name;
-    contact.email = req.body.email || contact.email;
-    contact.phone = req.body.phone || contact.phone;
+    const { name, email, phone } = req.body;
+    if (name && typeof name !== 'string') return res.status(400).json({ message: 'Invalid name' });
+    if (email && !/^\S+@\S+\.\S+$/.test(email)) return res.status(400).json({ message: 'Invalid email format' });
+    if (phone && typeof phone !== 'string') return res.status(400).json({ message: 'Invalid phone number' });
+
+    contact.name = name || contact.name;
+    contact.email = email || contact.email;
+    contact.phone = phone || contact.phone;
 
     const updatedContact = await contact.save();
     res.json(updatedContact);
   } catch (err) {
-    res.status(400).json({ message: err.message });
+    console.error(err); 
+    res.status(500).json({ message: 'Internal server error' });
   }
 };
 
-// Delete a contact by ID
+
 exports.deleteContact = async (req, res) => {
   try {
     const contact = await Contact.findById(req.params.id);
