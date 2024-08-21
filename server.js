@@ -7,9 +7,9 @@ const cors = require('cors');
 dotenv.config();
 
 const app = express();
+app.use(cors()); 
 app.use(express.json());
 app.use('/api/contacts', contacts);
-app.use(cors()); 
 
 const conn = require('./services/db');
 conn.dbConnection();
