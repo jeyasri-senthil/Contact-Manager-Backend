@@ -1,7 +1,5 @@
 ### **Contact Manager - Backend**
 
-*API Endpoints - https://github.com/jeyasri-senthil/Contact-Manager-Backend/blob/main/API%20Endpoints.json*
-
 *Vercel - https://contact-back-qoybs9zb4-jeyasris-projects.vercel.app/api/contacts/getall/*
 
 <br>
